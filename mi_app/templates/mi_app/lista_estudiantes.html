@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado de estudiantes</title>
-</head>
-<body>
+{% extends 'mi_app/index.html' %}
+{% block main %}
     <h1 style="background-color: lightgreen; color:black; text-align:center">Listado de Estudiantes inscriptos en los cursos de nuestra institución.</h1>
     <ul>
         {% for estudiante in estudiantes %}
@@ -16,6 +9,8 @@
             <li>------------------------------------------</li>
         {% endfor %}
     </ul>
+    
+    <a href="http://127.0.0.1:8000/mi-pagina/">Volver al Menu</a>
+
     <h5 style="background-color: lightgreen; color:black; text-align:center">Noir & Asociados 2022.</h5>
-</body>
-</html>
+{% endblock %}

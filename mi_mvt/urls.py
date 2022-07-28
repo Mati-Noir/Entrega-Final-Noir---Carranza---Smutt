@@ -25,3 +25,4 @@ urlpatterns = [
     path('profile/', mostrar_profile),
     path('', include('mi_app.urls')),
 ]
+ 

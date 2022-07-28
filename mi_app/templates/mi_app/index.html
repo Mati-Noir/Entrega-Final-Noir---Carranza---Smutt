@@ -16,10 +16,15 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'mi_app/css/styles.css' %}" rel="stylesheet" />
     </head>
+    
+    
+    
     <body>
+        
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
+                <a class="btn btn-primary" href="{% url 'pagina-inicial' %}">Home</a>
                 <a class="navbar-brand" href="{% url 'listar-cursos' %}">Cursos</a>
                 <a class="navbar-brand" href="{% url 'listar-estudiantes' %}">Estudiantes</a>
                 <a class="navbar-brand" href="{% url 'listar-profesores' %}">Profesores</a>
@@ -29,7 +34,8 @@
                 <a class="navbar-brand" href="{% url 'formulario_busqueda' %}">Buscar Cursos</a>
                 <a class="btn btn-primary" href="{% url 'mostrar_signup' %}">Iniciar Sesion</a>
             </div>
-        </nav>
+        </nav> 
+    {% block main %}    
         <!-- Masthead-->
         <header class="masthead">
             <div class="container position-relative">
@@ -78,6 +84,9 @@
                 </div>
             </div>
         </header>
+        
+       
+        
         <!-- Icons Grid-->
         <section class="features-icons bg-light text-center">
             <div class="container">
@@ -206,6 +215,10 @@
                 </div>
             </div>
         </section>
+        
+        
+        
+    {% endblock %}    
         <!-- Footer-->
         <footer class="footer bg-light">
             <div class="container">

@@ -1,39 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Busqueda de curso</title>
-</head>
-<body>
+{% extends 'mi_app/index.html' %}
 
-<h1>Busqueda de "Curso" por nombre</h1>
-<h2>Escriba que curso desea buscar:</h2>
+{% block main %}
+
+    {% if busqueda_formulario %}
+   
+    <h1>Busqueda de "Curso" por nombre</h1>
+    <h2>Escriba que curso desea buscar:</h2>
 
 
-<form action="" method="GET">
-    {{busqueda_formulario}}
-    <button type="submit">Buscar</button>
-</form>
+    <form action="" method="GET">
+        {{busqueda_formulario}}
+        <button type="submit">Buscar</button>
+        
+    </form>
+    <h1> 
+        <!-- relleno para que no quede pegado el boton -->
+    </h1>
+    
+    <a href="http://127.0.0.1:8000/mi-pagina/">Volver al Menu</a>
+    {% else %}
 
-{% if cursos %}
-    <ul>
-    {% for curso in cursos %}
-        <li>{{curso.nombre}}</li> 
-        <li>{{curso.camada}}</li>
-        <li>--------------------------</li>  
-    {% endfor %}
+        {% if cursos %}
+        <ul>
+            {% for curso in cursos %}
+                <li>{{curso.nombre}}</li> 
+                <li>{{curso.camada}}</li>
+                <li>--------------------------</li>  
+            {% endfor %}
+        </ul>
 
-    </ul>
-{% else %}
-    <h2> No hay cursos con ese criterio !!</h2>
+        {% else %}
+            <h2> No hay cursos con ese criterio !!</h2>
+            <button>
+                <a href="{% url 'formulario_busqueda' %}" > Volver a buscar </a>
+            </button>
+        {% endif %}
+    {% endif %}
 
-{% endif %}
+    <p style="color:red;">{{respuesta}}</p>
 
-<p style="color:red;">{{respuesta}}</p>
+{% endblock %}
 
-
-
-</body>
-</html>

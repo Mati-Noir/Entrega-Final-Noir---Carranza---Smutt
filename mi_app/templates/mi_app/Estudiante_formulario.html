@@ -1,7 +1,6 @@
+{% extends 'mi_app/index.html' %}
 
-<html>
-    <body>
-
+{% block main %}
         <h1>Formulario Estudiantes - Agregar Nombre , Apellido y Mail </h1>
 
         {% if mi_formulario_estudiante.errors %}
@@ -22,7 +21,7 @@
             <input type="submit", value="Enviar">
 
         </form>
-
-    </body>
-    
-</html>
+        
+        <h1>  </h1>
+        <a href="http://127.0.0.1:8000/mi-pagina/">Volver al Menu</a>
+{% endblock %}

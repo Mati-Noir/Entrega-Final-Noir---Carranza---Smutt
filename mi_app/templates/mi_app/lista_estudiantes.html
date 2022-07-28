@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de estudiantes</title>
+</head>
+<body>
+    <h1 style="background-color: lightgreen; color:black; text-align:center">Listado de Estudiantes inscriptos en los cursos de nuestra institución.</h1>
+    <ul>
+        {% for estudiante in estudiantes %}
+            <li>Nombre: {{estudiante.Nombre}} </li>
+            <li>Apellido: {{estudiante.Apellido}} </li>
+            <li>Email: {{estudiante.Email}} </li>
+            <li>------------------------------------------</li>
+        {% endfor %}
+    </ul>
+    <h5 style="background-color: lightgreen; color:black; text-align:center">Noir & Asociados 2022.</h5>
+</body>
+</html>

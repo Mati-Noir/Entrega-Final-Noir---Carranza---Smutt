@@ -1,0 +1,28 @@
+
+<html>
+    <body>
+
+        <h1>Formulario - Agregar Curso y Camada </h1>
+
+        {% if mi_formulario.errors %}
+
+        <p style = "color: red;"> Estan mal los datos, por favor revisar.</p>
+
+        {% endif %}
+
+        <form action="" method="POST">{% csrf_token %}
+
+            <table>
+
+             {{ mi_formulario.as_table }}
+
+
+            </table>
+
+            <input type="submit", value="Enviar">
+
+        </form>
+
+    </body>
+    
+</html>

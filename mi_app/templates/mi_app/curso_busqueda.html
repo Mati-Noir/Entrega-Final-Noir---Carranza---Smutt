@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busqueda de curso</title>
+</head>
+<body>
+
+<h1>Busqueda de "Curso" por nombre</h1>
+<h2>Escriba que curso desea buscar:</h2>
+
+
+<form action="" method="GET">
+    {{busqueda_formulario}}
+    <button type="submit">Buscar</button>
+</form>
+
+{% if cursos %}
+    <ul>
+    {% for curso in cursos %}
+        <li>{{curso.nombre}}</li> 
+        <li>{{curso.camada}}</li>
+        <li>--------------------------</li>  
+    {% endfor %}
+
+    </ul>
+{% else %}
+    <h2> No hay cursos con ese criterio !!</h2>
+
+{% endif %}
+
+<p style="color:red;">{{respuesta}}</p>
+
+
+
+</body>
+</html>

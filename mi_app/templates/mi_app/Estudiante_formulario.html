@@ -1,0 +1,28 @@
+
+<html>
+    <body>
+
+        <h1>Formulario Estudiantes - Agregar Nombre , Apellido y Mail </h1>
+
+        {% if mi_formulario_estudiante.errors %}
+
+        <p style = "color: red;"> Estan mal los datos, por favor revisar.</p>
+
+        {% endif %}
+
+        <form action="" method="POST">{% csrf_token %}
+
+            <table>
+
+             {{ mi_formulario_estudiante.as_table }}
+
+
+            </table>
+
+            <input type="submit", value="Enviar">
+
+        </form>
+
+    </body>
+    
+</html>

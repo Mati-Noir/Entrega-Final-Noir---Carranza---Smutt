@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de profesores</title>
+</head>
+<body>
+    <h1 style="background-color: lightskyblue; color:black; text-align:center">Listado de los mejores y mas capacitados profesionales dentro de nuestra institución.</h1>
+    <ul>
+        {% for profesor in profesores %}
+            <li>Nombre: {{profesor.nombre}} </li>
+            <li>Apellido: {{profesor.apellido}} </li>
+            <li>Email: {{profesor.email}} </li>
+            <li>Profesion: {{profesor.profesion}} </li>
+            <li>------------------------------------------</li>
+            <button>
+                <a href="#">Eliminar Profesor</a>
+            </button>
+            <li>------------------------------------------</li>
+        {% endfor %}
+            <a href="{% url 'profesor_formulario' %}">Agregar otro profesor</a>
+    </ul>
+    <h5 style="background-color: lightskyblue; color:black; text-align:center">Noir & Asociados 2022.</h5>
+</body>
+</html>

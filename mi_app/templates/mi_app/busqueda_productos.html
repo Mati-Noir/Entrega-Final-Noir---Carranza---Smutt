@@ -1,0 +1,23 @@
+<html>
+
+<head>
+
+<title>Busqueda de Productos</title>
+
+</head>
+
+
+<body>
+
+    <h1>Busqueda de Productos</h1>
+
+    <form action="/buscar/" method="GET">{% csrf_token %}
+
+        <input type="text" name="producto">
+
+        <input type="button" value="Buscar">
+
+    </form>
+
+</body>
+</html>

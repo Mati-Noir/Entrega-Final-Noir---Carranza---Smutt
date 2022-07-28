@@ -1,0 +1,28 @@
+
+<html>
+    <body>
+
+        <h1>Formulario Profesores - Ingresar Nombre , Apellido , Mail y Profesion</h1>
+
+        {% if mi_formulario_profesor.errors %}
+
+        <p style = "color: red;"> Estan mal los datos, por favor revisar.</p>
+
+        {% endif %}
+
+        <form action="" method="POST">{% csrf_token %}
+
+            <table>
+
+             {{ mi_formulario_profesor.as_table }}
+
+
+            </table>
+
+            <input type="submit", value="Enviar">
+
+        </form>
+
+    </body>
+    
+</html>

@@ -167,4 +167,12 @@ def eliminarProfesor(request,profesor_nombre):
 
     return render(request, "mi_app/lista_profesores.html", contexto)
 
+def mostrar_terms(request):
+
+    return render(request, "mi_app/Terms.html")
+
+def mostrar_politicas_privacidad(request):
+
+    return render(request, "mi_app/Politicas_de_Privacidad.html")
+
 

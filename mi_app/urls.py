@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path
 from mi_app.views import (listar_profesores, 
          listar_cursos, listar_estudiantes, mostrar_index,
-        formulario_curso,estudiante_formulario, mostrar_about_us,)
+        formulario_curso,estudiante_formulario, mostrar_about_us, mostrar_terms,)
 from mi_app import views
 
 
@@ -19,4 +19,6 @@ urlpatterns = [
     path('buscar_curso/',views.formulario_busqueda, name="formulario_busqueda"),
     path('iniciar_sesion/',views.mostrar_signup,name="mostrar_signup"),
     path('Sobre_Nosotros/',views.mostrar_about_us,name="mostrar_about_us"),
+    path('Terminos/',views.mostrar_terms,name="mostrar_terms"),
+    path('Politica_Privacidad/',views.mostrar_politicas_privacidad,name="mostrar_politicas_privacidad"),
 ]

@@ -1,8 +1,19 @@
+from tkinter import N
 from django.shortcuts import render
 from django.http import HttpResponse
 from datetime import date, datetime
 from mi_app.models import Curso, Estudiante, Profesor
 from mi_app.forms import CursoFormulario, CursoBusquedaFormulario, ProfesorFormulario, EstudianteFormulario
+from django.contrib.messages.views import SuccessMessageMixin
+from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView, View
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from mi_app.forms import userRegisterForm, userLoginForm
+from django.urls import reverse_lazy
+from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.decorators import login_required
 
 # --------- Sector de la pagina web. --------- #
 
@@ -167,4 +178,47 @@ def eliminarProfesor(request,profesor_nombre):
 
     return render(request, "mi_app/lista_profesores.html", contexto)
 
+
+
+
+
+
+
+
+
+
+# login - signup - logout 
+# templates: Panel_Signup.html - user_form.html(registro) - login.html - panel_logout.html
+class usuarioRegistro(SuccessMessageMixin, CreateView):
+    success_message = 'Usuario creado satisfactoriamente!'
+    template_name = 'mi_app/user_form.html'
+    success_url = reverse_lazy('login')
+    form_class = userRegisterForm
+    
+
+def usuario_login(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data = request.POST)
+        if form.is_valid():
+            usuario = form.cleaned_data.get('username')
+            contraseña = form.cleaned_data.get('password')
+            user = authenticate(username = usuario, password = contraseña) # si existen los datos en la bd
+            if user is not None:
+                login(request, user)
+                return render(request, 'mi_app/index.html', {'mensaje' : f'Hola {usuario}! '})
+            else:
+                return render(request, 'mi_app/index.html', {'mensaje' : ''})
+        else:
+            return render(request, 'mi_app/index.html', {'mensaje' : 'Contraseña o nombre de usuario mal ingresados.' })
+    form = AuthenticationForm()
+    return render(request, 'mi_app/login.html', {'form' : form })
+
+    
+class PanelLogout(LogoutView):
+    template_name = 'mi_app/panel_logout.html'
+
+
+
+
+    
 

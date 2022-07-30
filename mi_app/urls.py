@@ -2,8 +2,10 @@ from django.contrib import admin
 from django.urls import path
 from mi_app.views import (listar_profesores, 
          listar_cursos, listar_estudiantes, mostrar_index,
-        formulario_curso,estudiante_formulario, mostrar_about_us,)
-from mi_app import views
+        formulario_curso,estudiante_formulario, mostrar_about_us,
+        usuarioRegistro, PanelLogout, usuario_login
+    )
+from mi_app import views 
 
 
 urlpatterns = [
@@ -17,6 +19,12 @@ urlpatterns = [
     path('contacto/', views.contacto),
     path('busqueda_productos/',views.busqueda_productos),
     path('buscar_curso/',views.formulario_busqueda, name="formulario_busqueda"),
-    path('iniciar_sesion/',views.mostrar_signup,name="mostrar_signup"),
     path('Sobre_Nosotros/',views.mostrar_about_us,name="mostrar_about_us"),
+    path('registro/', usuarioRegistro.as_view(), name = 'usuario-registro'),
+    path('panel-logout/', PanelLogout.as_view(), name = 'Panel-Logout'),
+    path('login/', views.usuario_login , name = 'login'), # login momentaneo hasta que funcione el del bootstrap
+    
 ]
+
+
+

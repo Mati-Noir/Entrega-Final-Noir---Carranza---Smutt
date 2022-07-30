@@ -1,6 +1,8 @@
+from hashlib import blake2b
 from unittest.util import _MAX_LENGTH
 from django.db import models
-
+from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
 
 class Curso(models.Model):
 
@@ -26,3 +28,10 @@ class Profesor(models.Model):
 
     def __str__(self):
         return f"{self.nombre} {self.apellido} {self.email} {self.profesion}"
+
+
+
+
+
+
+

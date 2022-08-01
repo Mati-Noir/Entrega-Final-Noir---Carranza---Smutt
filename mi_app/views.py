@@ -19,7 +19,7 @@ from django.contrib.auth.decorators import login_required
 
 
 def mostrar_index(request):
-    return render(request, "mi_app/index.html", {"mi_titulo": "Bienvenido, suscribase para recibir notificaciones sobre lo ultimo en reseñas de los nuevos lanzamientos."})
+    return render(request, "mi_app/index.html", {"mi_titulo": "Bienvenido a Practac Gaming News. Visite nuestro sector de reseñas para enterarse de los ultimos lanzamientos mas esperados del año."})
 
 
 # --------- Sector de las listas de las diferentes clases de los models. --------- #

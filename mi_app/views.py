@@ -8,7 +8,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView, View
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from mi_app.forms import userRegisterForm, userLoginForm
+from mi_app.forms import userRegisterForm
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth import authenticate, login, logout

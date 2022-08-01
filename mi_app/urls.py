@@ -23,6 +23,8 @@ urlpatterns = [
     path('registro/', usuarioRegistro.as_view(), name = 'usuario-registro'),
     path('panel-logout/', PanelLogout.as_view(), name = 'Panel-Logout'),
     path('login/', views.usuario_login , name = 'login'), # login momentaneo hasta que funcione el del bootstrap
+    path('Terminos/',views.mostrar_terms,name="mostrar_terms"),
+    path('Politica_Privacidad/',views.mostrar_politicas_privacidad,name="mostrar_politicas_privacidad"),
     
 ]
 

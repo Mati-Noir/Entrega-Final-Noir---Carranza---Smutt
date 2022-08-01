@@ -162,10 +162,6 @@ def mostrar_signup(request):
     return render(request, "mi_app/Panel_signup.html")
 
 
-def mostrar_about_us(request):
-
-    return render(request, "mi_app/SobreNosotros.html")
-
 
 def eliminarProfesor(request,profesor_nombre):
 
@@ -179,7 +175,19 @@ def eliminarProfesor(request,profesor_nombre):
     return render(request, "mi_app/lista_profesores.html", contexto)
 
 
+# --------- Sector de About us + terms + P.P. --------- #
 
+def mostrar_terms(request):
+
+    return render(request, "mi_app/Terms.html")
+
+def mostrar_politicas_privacidad(request):
+
+    return render(request, "mi_app/Politicas_de_Privacidad.html")
+
+def mostrar_about_us(request):
+
+    return render(request, "mi_app/SobreNosotros.html")
 
 
 

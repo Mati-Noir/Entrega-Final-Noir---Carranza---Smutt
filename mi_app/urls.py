@@ -9,6 +9,7 @@ from mi_app import views
 
 
 urlpatterns = [
+    path('', mostrar_index),
     path('mi-pagina/', mostrar_index, name = 'pagina-inicial'),
     path('listar-cursos/', views.listar_cursos, name="listar-cursos"),
     path('listar-estudiantes/', views.listar_estudiantes, name="listar-estudiantes"),

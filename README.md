@@ -1,6 +1,8 @@
 # A) Primeros pasos:
 -Descargar la carpeta contenedora del proyecto para abrir en vsc.
+
 -Abrir el vsc y seleccionar open folder.
+
 -Seleccionar la carpeta dentro de la ruta de descarga elegida.
 
 

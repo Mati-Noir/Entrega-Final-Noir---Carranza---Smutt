@@ -41,7 +41,7 @@ Como se hace? Nos vamos a la terminal y escribimos:
 
 python manage.py runserver
 
-          o
+o tambien puede ingresar:
 
 py manage.py runserver
 

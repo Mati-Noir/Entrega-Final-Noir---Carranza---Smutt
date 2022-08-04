@@ -14,7 +14,7 @@ Presionamos click izuqierdo la opcion de "Terminal" que nos despliega un subcart
 
 Antes de encender el servidor u realizar cualquier comandod de la terminal, debemos verificar que estemos en la carpeta correcta. En este caso, el ultimo archivo de la carpeta debe estar bajo el nombre:
 
-/Entrega-Final-Noir---Carranza---Smutt
+Entrega-Final-Noir---Carranza---Smutt
 
 Si escribimos algun comando en la terminal sin estar en la carpeta correcta, nos saldra al final este error:
 

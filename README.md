@@ -105,6 +105,7 @@ Tambien estaran las opciones de redes sociales, todas redirigidas hacia las pagi
 
 # G)Fin:
 Una vez que haya terminado de probar las diferentes funciones de la pagina, vuelva al vsc, haga click en la terminal y presione las teclas "Ctrl" + "C" para cerrar el servidor.
+
 -Tambien se puede cerrar el servidor con cerrar el programa, que forzara el cierre de la aplicacion y la conexion con el servidor local.
 
 A todo esto, se le agradece su visita y prueba del proyecto. muchas gracias por su atencion.

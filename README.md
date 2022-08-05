@@ -108,6 +108,12 @@ Una vez que haya terminado de probar las diferentes funciones de la pagina, vuel
 
 -Tambien se puede cerrar el servidor con cerrar el programa, que forzara el cierre de la aplicacion y la conexion con el servidor local.
 
+Para ver el excel de casos de prueba + Video de presentacion/tutorial, se encuentra en la siguiente carpeta de google drive:
+
+(Recuerde que podra verlo y compartirlo, pero no podra editar el contenido, solo leer y comentarlo).
+
+https://drive.google.com/drive/folders/1GSMwO7SPxjcCXyTkfdNddb_KHjxgpF1I?usp=sharing
+
 A todo esto, se le agradece su visita y prueba del proyecto. muchas gracias por su atencion.
 
 Noir - Carranza - Smutt

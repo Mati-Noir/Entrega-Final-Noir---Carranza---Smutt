@@ -1,0 +1,33 @@
+{% extends 'mi_app/index.html' %}
+
+{%block main%}
+
+<table>
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Titulo</th>
+            <th scope="col">Publicador</th>
+            <th scope="col">Fecha de publicación</th>
+            <th scope="col">Fecha de actualización</th>
+        </tr>
+    </thead>
+        <tbody>
+            {% for product in products %}
+                <tr>
+                    <th scope="row">1</th>
+                    <td> {{product.title}} </td>
+                    <td> {{product.author}} </td>
+                    <td> {{product.date_published}} </td>
+                    <td> {{product.date_created}} </td>
+                    <td> {{product.date_updated}} </td>
+                    <td>
+                        <a type="button" href="{% url 'Product-Update' %}" >Editar  </a>
+                        <a type="button" href="{% url 'Delete' %}" > Eliminar </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+</table>
+
+{% endblock%}

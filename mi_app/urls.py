@@ -6,7 +6,7 @@ from mi_app.views import (listar_profesores,
         usuarioRegistro, PanelLogout, usuario_login
     )
 from mi_app import views 
-
+from mi_app.views import PanelReviews, ReviewCreate, ReviewDelete, ReviewDetail, ReviewUpdate, UserProfile, UserUpdate, ProductCreate, ProductDelete, ProductList, ProductUpdate
 
 urlpatterns = [
     path('', mostrar_index),
@@ -26,7 +26,17 @@ urlpatterns = [
     path('login/', views.usuario_login , name = 'login'), # login momentaneo hasta que funcione el del bootstrap
     path('Terminos/',views.mostrar_terms,name="mostrar_terms"),
     path('Politica_Privacidad/',views.mostrar_politicas_privacidad,name="mostrar_politicas_privacidad"),
-    
+    path('panel/', PanelReviews.as_view()  , name = 'Panel'),  ##########
+    path('review-create/', ReviewCreate.as_view()  , name = 'Create'),
+    path('review-delete/', ReviewDelete.as_view()  , name = 'Delete'),
+    path('review-detail/', ReviewDetail.as_view()  , name = 'Detail'),
+    path('review-update/', ReviewUpdate.as_view()  , name = 'Review-Update'),
+    path('profile/<pk>',   UserProfile.as_view() , name = 'User-Profile'),
+    path('update/<pk>',   UserUpdate.as_view() , name = 'User-Update'),
+    path('products/',  ProductList.as_view() , name = 'Products-List'), ########
+    path('products-update/',  ProductUpdate.as_view() , name = 'Products-Update'),
+    path('products-create/',  ProductCreate.as_view() , name = 'Products-Create'),
+    path('products-delete/',  ProductDelete.as_view() , name = 'Products-Delete'),
 ]
 
 

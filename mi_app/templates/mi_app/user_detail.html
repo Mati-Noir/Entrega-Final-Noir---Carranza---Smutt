@@ -1,0 +1,14 @@
+{% extends 'mi_app/index.html' %}
+
+{% block main %}
+
+    <a href="{% url 'Panel' %}" >Ir al Panel de Reseñas</a>
+    <a href="{% url 'User-Update' %}"> Actualizar Perfil </a>
+    <ul>
+        <li>Nombre: {{object.user.first_name}} </li>
+        <li>Apellido: {{object.user.last_name}} </li>
+        <li>Email: {{object.user.email}} </li>
+        <li>Nombre de Usuario: {{object.user.username}} </li>
+    </ul>
+    <img height="120" src=" {{object.avatar.url}} " >
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'mi_app/index.html' %}
+
+{% block main %}
+
+    <a href="{% url 'Create' %}" >Nueva Publicación</a>
+    <a href="{% url 'Panel-Logout' %}" >Cerrar Sesión</a>
+    <a href="{% url 'User-Profile' user.id %}" >Perfil</a>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Publicador</th>
+                <th scope="col">Fecha de publicación</th>
+                <th scope="col">Fecha de creación</th>
+                <th scope="col">Fecha de actualización</th>
+            </tr>
+        </thead>
+            <tbody>
+                {% for review in reviews %}
+                    <tr>
+                        <th scope="row">1</th>
+                        <td> {{review.title}} </td>
+                        <td> {{review.author}} </td>
+                        <td> {{review.date_published}} </td>
+                        <td> {{review.date_created}} </td>
+                        <td> {{review.date_updated}} </td>
+                        <td>
+                            <a type="button" href="{% url 'Review-Update' %}" >Editar  </a>
+                            <a type="button" href="{% url 'Delete' %}" > Eliminar </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+    </table>
+
+{% endblock %}

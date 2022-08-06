@@ -33,5 +33,30 @@ class Profesor(models.Model):
 
 
 
+class Publisher(models.Model):
+    user = models.ForeignKey(User, on_delete = models.DO_NOTHING)
+    avatar = models.ImageField(upload_to = 'avatars', null = True, blank = True)
+    date_created = models.DateTimeField(auto_now_add = True)
+    date_updated = models.DateTimeField(auto_now = True)
+    def __str__(self):
+        return self.user.username
+
+class Review(models.Model):
+    title = models.CharField(max_length = 30)
+    content = RichTextField()
+    image = models.ImageField(upload_to = 'reviews', null = True, blank = True)
+    author = models.ForeignKey(Publisher, on_delete = models.DO_NOTHING)
+    is_headline = models.BooleanField()
+    date_created = models.DateTimeField(auto_now_add = True)
+    date_updated = models.DateTimeField(auto_now = True)
+    date_published = models.DateTimeField()
 
 
+
+class Products(models.Model):
+    title = models.CharField(max_length = 30)
+    content = RichTextField()
+    image = models.ImageField(upload_to = 'reviews', null = True, blank = True)
+    author = models.ForeignKey(Publisher, on_delete = models.DO_NOTHING)
+    date_updated = models.DateTimeField(auto_now = True)
+    date_published = models.DateTimeField()

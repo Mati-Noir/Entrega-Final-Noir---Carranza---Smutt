@@ -1,8 +1,9 @@
+from distutils.log import Log
 from tkinter import N
 from django.shortcuts import render
 from django.http import HttpResponse
 from datetime import date, datetime
-from mi_app.models import Curso, Estudiante, Profesor
+from mi_app.models import Curso, Estudiante, Profesor, Review, Publisher, Products
 from mi_app.forms import CursoFormulario, CursoBusquedaFormulario, ProfesorFormulario, EstudianteFormulario
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView, View
@@ -228,5 +229,89 @@ class PanelLogout(LogoutView):
 
 
 
-    
 
+
+
+# panel reseñas 
+class PanelReviews(LoginRequiredMixin, ListView):
+    queryset = Review.objects.all()
+    template_name = 'mi_app/review_list.html'
+    context_object_name = 'reviews'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['headline'] = Review.objects.filter(is_headline = True).order_by('date_updated').first()
+        return context
+
+class ReviewDetail(DetailView):
+    model = Review
+    context_object_name = 'review'
+    
+class ReviewCreate(LoginRequiredMixin, CreateView):
+    model = Review
+    fields = ['title' , 'content', 'author', 'image', 'is_headline', 'image', 'date_published']
+    template_name = 'mi_app/review_form.html'
+    success_url = reverse_lazy('Panel')
+
+class ReviewUpdate(LoginRequiredMixin, UpdateView):
+    model = Review
+    fields = ['title' , 'content', 'author', 'image', 'is_headline', 'image', 'date_published']
+    success_url = reverse_lazy('Panel')
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['headline'] = Review.objects.filter(is_headline = True).order_by('date_updated').first()
+        return context
+
+class ReviewDelete(LoginRequiredMixin, DeleteView):
+    model = Review
+    success_url = reverse_lazy('Panel')
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['headline'] = Review.objects.filter(is_headline = True).order_by('date_updated').first()
+        return context
+
+class UserProfile(LoginRequiredMixin, UserPassesTestMixin, DetailView):
+    model = Publisher
+    template_name = 'mi_app/user_detail.html'
+    def test_func(self):
+        return self.request == int(self.kwargs['pk'])
+
+class UserUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = User
+    template_name = 'mi_app/user_form.html'
+    fields = ['username', 'email', 'first_name', 'last_name']
+    def get_success_url(self):
+        return reverse_lazy('', kwargs = {'pk' : self.request.user.id})
+    def test_func(self):
+        return self.request.id == int(self.kwargs['pk'])
+
+
+#productos
+class ProductList(LoginRequiredMixin, ListView):
+    model = Products
+    queryset = Products.objects.all()
+    context_object_name = 'products'
+    template_name = 'mi_app/products_list.html'
+
+
+class ProductCreate(LoginRequiredMixin, CreateView):
+    model = Products
+    fields = ['title', 'content', 'image', 'author', 'date_published'] 
+    template_name = 'mi_app/products_form.html'
+    success_url = reverse_lazy('Product-List')
+
+
+class ProductUpdate(LoginRequiredMixin, UpdateView):
+    model = Products
+    fields = ['title', 'content', 'image', 'author', 'date_updated'] 
+    success_url = reverse_lazy('Product-List')
+
+
+
+class ProductDelete(LoginRequiredMixin, DeleteView):
+    model = Products
+    success_url = reverse_lazy('Product-List')
+
+
+class ProductDetail(LoginRequiredMixin, DetailView):
+    model = Products
+    context_object_name = 'product'

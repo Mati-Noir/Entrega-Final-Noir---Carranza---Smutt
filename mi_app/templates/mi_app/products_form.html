@@ -1,0 +1,17 @@
+{% extends 'mi_app/index.html' %}
+
+{%block main%}
+    <form method="POST" >
+        {% csrf_token %}
+        {{form.as_p}}
+        <button>
+            <a href="{% url 'Products-Create' %}" >Crear</a>
+        </button>
+        <button>
+            <a href="{% url 'Products-Update' %}" >Actualizar</a>
+        </button>
+
+    </form>
+
+
+{% endblock%}

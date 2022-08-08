@@ -2,10 +2,8 @@ from tkinter import N
 from django.shortcuts import render
 from django.http import HttpResponse
 from datetime import date, datetime
-from mi_app.models import Curso, Estudiante, Profesor
-from mi_app.forms import CursoFormulario, CursoBusquedaFormulario, ProfesorFormulario, EstudianteFormulario
 from django.contrib.messages.views import SuccessMessageMixin
-from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView, View
+from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView, View, UpdateView, DeleteView
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from mi_app.forms import userRegisterForm
@@ -14,6 +12,8 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
+from .models import Post
+from .forms import PostForm , EditForm
 
 # --------- Sector de la pagina web. --------- #
 
@@ -22,157 +22,9 @@ def mostrar_index(request):
     return render(request, "mi_app/index.html", {"mi_titulo": "Bienvenido a Practac Gaming News. Visite nuestro sector de reseñas para enterarse de los ultimos lanzamientos mas esperados del año."})
 
 
-# --------- Sector de las listas de las diferentes clases de los models. --------- #
-
-
-def listar_cursos(request): # vista
-    context = {}
-    context["cursos"] = Curso.objects.all() # modelo
-    return render(request, "mi_app/lista_cursos.html", context) # template
-
-
-def listar_estudiantes(request):
-    context = {}
-    context["estudiantes"] = Estudiante.objects.all()
-    return render(request, "mi_app/lista_estudiantes.html", context)
-
-def listar_profesores(request):
-    context = {}
-    context["profesores"] = Profesor.objects.all()
-    return render(request, "mi_app/lista_profesores.html", context)
-
-
-# --------- Sector de las formularios. --------- #
-
-
-def formulario_curso(request):
-
-    if request.method == "POST":
-        
-        mi_formulario = CursoFormulario(request.POST)
-
-        print(mi_formulario)
-
-        if  mi_formulario.is_valid():
-
-            datos = mi_formulario.cleaned_data 
-
-            curso = Curso(nombre=datos["curso"], camada=datos["camada"])
-
-            curso.save()
-
-            return render(request, "mi_app/gracias.html", {"mensaje":"agregado con exito!"})
-   
-    else:
-
-        mi_formulario = CursoFormulario()
-    
-    return render(request, "mi_app/curso_formulario.html", {"mi_formulario":mi_formulario})
-
-
-def profesor_formulario(request):
-
-    if request.method == "POST":
-        
-        mi_formulario_profesor = ProfesorFormulario(request.POST)
-
-        print(mi_formulario_profesor)
-
-        if  mi_formulario_profesor.is_valid():
-
-            data = mi_formulario_profesor.cleaned_data 
-
-            profe = Profesor(nombre=data["nombre"], apellido=data["apellido"], email=data["email"], profesion=data["profesion"],)
-
-            profe.save()
-
-            return render(request, "mi_app/gracias.html")
-   
-    else:
-
-        mi_formulario_profesor = ProfesorFormulario()
-    
-    return render(request, "mi_app/Profesor_Formulario.html", {"mi_formulario_profesor":mi_formulario_profesor})
-
-
-
-
-def estudiante_formulario(request):
-
-    if request.method == "POST":
-        
-        mi_formulario_estudiante = EstudianteFormulario(request.POST)
-
-        print(mi_formulario_estudiante)
-
-        if  mi_formulario_estudiante.is_valid():
-
-            dato = mi_formulario_estudiante.cleaned_data 
-
-            alumno = Estudiante(Nombre=dato["Nombre"], Apellido=dato["Apellido"], Email=dato["Email"],)
-
-            alumno.save()
-
-            return render(request, "mi_app/gracias.html")
-   
-    else:
-
-        mi_formulario_estudiante = EstudianteFormulario()
-    
-    return render(request, "mi_app/Estudiante_formulario.html", {"mi_formulario_estudiante":mi_formulario_estudiante})
-
-
-
-# --------- Sector de las busquedas de formularios. --------- #
-
-def formulario_busqueda(request):
-
-    busqueda_formulario = CursoBusquedaFormulario()
-
-    if request.GET:    
-        busqueda_formulario = CursoBusquedaFormulario(request.GET)
-        if busqueda_formulario.is_valid():
-            criterio = busqueda_formulario.cleaned_data
-            cursos = Curso.objects.filter(nombre = criterio['criterio']).all()
-            #cursos = Curso.objects.filter(nombre=busqueda_formulario.cleaned_data.get("criterio")).all()
-            return render(request, "mi_app/curso_busqueda.html", {"cursos": cursos})
-
-#"busqueda_formulario": busqueda_formulario
-    return render(request, "mi_app/curso_busqueda.html", {"busqueda_formulario": busqueda_formulario})
-
-
-
-def contacto(request):
-
-    if request.method == "POST":
-        
-        return render(request, "mi_app/gracias.html")
-
-    return render(request,"mi_app/contacto.html")
-
-
-def busqueda_productos(request):
-
-    return render(request, "mi_app/busqueda_productos.html")
-
-
-
 def mostrar_signup(request):
 
     return render(request, "mi_app/Panel_signup.html")
-
-
-
-def eliminarProfesor(request,profesor_nombre):
-
-    profesor = Profesor.objects.get(nombre=profesor_nombre)
-    profesor.delete()
-
-    profesores = Profesor.objects.all()
-
-    contexto = {"profesores":profesores}
-
-    return render(request, "mi_app/lista_profesores.html", contexto)
 
 
 # --------- Sector de About us + terms + P.P. --------- #
@@ -193,7 +45,7 @@ def mostrar_about_us(request):
 
 
 
-
+# ---- Sector Login - Signup - Logout ---- #
 
 # login - signup - logout 
 # templates: Panel_Signup.html - user_form.html(registro) - login.html - panel_logout.html
@@ -221,12 +73,40 @@ def usuario_login(request):
     form = AuthenticationForm()
     return render(request, 'mi_app/login.html', {'form' : form })
 
+
     
 class PanelLogout(LogoutView):
     template_name = 'mi_app/panel_logout.html'
 
-
-
-
+# ------- Sector de panel de reseñas -------- #
     
 
+class Lista_Reseñas(ListView):
+    model = Post
+    template_name = 'post_list.html'
+    ordering = ['-post_date']
+    #ordering = ['-id']
+
+# ------- CRUD de las reseñas/articulos -------- #
+
+class ArticleDetailView(DetailView):
+    model = Post
+    template_name = 'mi_app/article-detail.html'
+
+
+class AddPostView(LoginRequiredMixin ,CreateView):
+    model = Post
+    form_class = PostForm
+    template_name = 'mi_app/add_post.html'
+    #fields = '__all__'
+
+class UpdatePostView(LoginRequiredMixin ,UpdateView):
+    model = Post
+    form_class = EditForm
+    template_name = 'mi_app/update_post.html'
+    #fields = ['title', 'title_tag', 'body']
+
+class DeletePostView(LoginRequiredMixin , DeleteView):
+    model = Post
+    template_name = 'mi_app/delete_post.html'
+    success_url = reverse_lazy('Post_list')

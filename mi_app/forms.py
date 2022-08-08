@@ -1,29 +1,14 @@
+from dataclasses import fields
 from doctest import master
+from tkinter import Widget
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
+from .models import Post
 
 
 
-class CursoFormulario(forms.Form):
 
-    curso = forms.CharField()
-    camada = forms.IntegerField()
-
-
-class CursoBusquedaFormulario(forms.Form):
-    criterio = forms.CharField()
-
-class EstudianteFormulario(forms.Form):
-    Nombre= forms.CharField(max_length=40)
-    Apellido= forms.CharField(max_length=40)
-    Email= forms.EmailField()
-
-class ProfesorFormulario(forms.Form):   
-    nombre= forms.CharField(max_length=30)
-    apellido= forms.CharField(max_length=30)
-    email= forms.EmailField()
-    profesion= forms.CharField(max_length=30)
 
 
 class userRegisterForm(UserCreationForm):
@@ -37,3 +22,32 @@ class userRegisterForm(UserCreationForm):
         model = User
         fields = ['username', 'email', 'password1', 'password2', 'first_name', 'last_name']
         help_texts = {k:'' for k in fields}
+
+
+
+# ---- Sector formularios de las reseñas ---- #
+
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ('title','title_tag','author','body', 'image')
+
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Algun titulo para colocar'}),
+            'title_tag': forms.TextInput(attrs={'class': 'form-control','placeholder':'Nombre de la pestaña al entrar al articulo'}),
+            'author': forms.Select(attrs={'class': 'form-control'}),
+            'body': forms.Textarea(attrs={'class': 'form-control','placeholder':'Escriba lo que desee sobre el articulo'}),
+        }
+
+class EditForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ('title','title_tag','body', 'image')
+
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Algun titulo para colocar'}),
+            'title_tag': forms.TextInput(attrs={'class': 'form-control','placeholder':'Nombre de la pestaña al entrar al articulo'}),
+            #'author': forms.Select(attrs={'class': 'form-control'}),
+            'body': forms.Textarea(attrs={'class': 'form-control','placeholder':'Escriba lo que desee sobre el articulo'}),
+        }

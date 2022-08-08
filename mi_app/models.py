@@ -1,35 +1,28 @@
+from email.policy import default
 from hashlib import blake2b
 from unittest.util import _MAX_LENGTH
 from django.db import models
 from django.contrib.auth.models import User
 from ckeditor.fields import RichTextField
+from django.urls import reverse
+from datetime import datetime, date
 
-class Curso(models.Model):
 
-    nombre = models.CharField(max_length=40)
-    camada = models.IntegerField()
+# ------ Sector de Reseñas ------ #
 
-    def __str__(self):
-        return f"{self.nombre} {self.camada}"
-
-class Estudiante(models.Model):
-    Nombre = models.CharField(max_length=40)
-    Apellido = models.CharField(max_length=40)
-    Email = models.EmailField()
-
-    def __str__(self):
-        return f"{self.Nombre} {self.Apellido} {self.Email}"
-
-class Profesor(models.Model):
-    nombre = models.CharField(max_length=40)
-    apellido = models.CharField(max_length=40)
-    email = models.EmailField()
-    profesion = models.CharField(max_length=40)
+class Post(models.Model):
+    title = models.CharField(max_length=255)
+    title_tag = models.CharField(max_length=255)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    body = models.TextField()
+    post_date = models.DateField(auto_now_add=True)
+    image = models.ImageField(upload_to = 'avatares', null= True, blank= True)
 
     def __str__(self):
-        return f"{self.nombre} {self.apellido} {self.email} {self.profesion}"
+       return self.title + ' | ' + str(self.author)
 
-
+    def get_absolute_url(self):
+        return reverse('article-detail', args=(str(self.id)))
 
 
 

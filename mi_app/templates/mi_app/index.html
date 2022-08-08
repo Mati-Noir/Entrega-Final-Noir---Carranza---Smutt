@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Practac Gaming News</title>
+        <title>{% block title %}Practac Gaming News{% endblock %}</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -25,20 +25,16 @@
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
                 <a class="btn btn-primary" href="{% url 'pagina-inicial' %}">Home</a>
-                <a class="navbar-brand" href="{% url 'listar-cursos' %}">Cursos</a>
-                <a class="navbar-brand" href="{% url 'listar-estudiantes' %}">Estudiantes</a>
-                <a class="navbar-brand" href="{% url 'listar-profesores' %}">Profesores</a>
-                <a class="navbar-brand" href="{% url 'formulario_curso' %}">Inscribirse a Curso</a>
-                <a class="navbar-brand" href="{% url 'estudiante_formulario' %}">Inscribirse como Estudiante</a>
-                <a class="navbar-brand" href="{% url 'profesor_formulario' %}">Inscribirse como Profesor</a>
-                <a class="navbar-brand" href="{% url 'formulario_busqueda' %}">Buscar Cursos</a>
+                <a class="navbar-brand" href="{% url 'Post_list' %}">Reseñas</a>
+                <a class="navbar-brand" href="{% url 'add_post' %}">Agregar Reseñas</a>
                 {% if not request.user.is_authenticated %}
                 <a class="btn btn-primary" href="{% url 'login' %}">Iniciar Sesión</a>
+                <a class="btn btn-primary" href="{% url 'usuario-registro' %}">Registrarse</a>
                 {% endif %}
                 {% if request.user.is_authenticated %}
                 <div class="text-center" >
                     <img height="50px" src=" {{url}} ">
-                    <h2> Nos alegra verte de nuevo: {{user.username}} </h2>
+                    <h2> Bienvenido: {{user.username}} </h2>
                 </div>
                 <a class="btn btn-primary" href="{% url 'Panel-Logout' %}"> Cerrar Sesión </a>
                 {% endif %}
@@ -158,8 +154,13 @@
             <div class="container position-relative">
                 <div class="row justify-content-center">
                     <div class="col-xl-6">
+                        {% if not request.user.is_authenticated %}
                         <h2 class="mb-4">¿Querés recibir mas novedades? Registrate para saber todo el intel que necesitas!</h2>
                         <a class="btn btn-primary" href="{% url 'login' %}">Iniciar Sesión</a>
+                        {% endif %}
+                        {% if request.user.is_authenticated %}
+                        <h2>Visita nuestras redes sociales para enterarte sobre adelantos y detalles exclusivos sobre los nuevos lanzamientos</h2>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -175,8 +176,6 @@
                     <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
                         <ul class="list-inline mb-2">
                             <li class="list-inline-item"><a href="{% url 'mostrar_about_us' %}">Sobre nosotros</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Contacto</a></li>
                             <li class="list-inline-item">⋅</li>
                             <li class="list-inline-item"><a href="{% url 'mostrar_terms' %}">Terminos de uso</a></li>
                             <li class="list-inline-item">⋅</li>

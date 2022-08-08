@@ -1,0 +1,24 @@
+{% extends 'mi_app/index.html' %}
+{% block main %}
+
+<div class="container">
+<h1>Lista de Reseñas</h1>
+
+<ul>
+{% for post in object_list %}
+    <li><a href="{% url 'article-detail' post.pk %}"> {{ post.title }}</a> - AUTOR: {{ post.author.first_name }}
+    {{ post.author.last_name }} - {{ post.post_date }}<small>
+        <a href="{% url 'update_post' post.pk %}">(Editar)</a>
+
+        <a href="{% url 'delete_post' post.pk %}">(Borrar)</a>
+
+    </small> <br/>
+    {{ post.body }}</li>
+    <br>
+    <br>
+{% endfor %}
+
+</ul>
+
+</div>
+{% endblock %}

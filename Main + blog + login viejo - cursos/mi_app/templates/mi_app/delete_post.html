@@ -1,0 +1,20 @@
+{% extends 'mi_app/index.html' %}
+{% block title %}Borrar un articulo{% endblock %}
+{% block main %}
+
+<div class="container">
+<h1>Eliminar Reseñas</h1>
+<br>
+<h3>Borrar: {{ post.title }}</h3>
+
+<br/>
+<div class="form-group">
+    <form method="POST">
+        {% csrf_token %}
+        <strong>Estas seguro de borrarlo?</strong><br/><br/>
+        <button class="btn btn-secondary">Borrar este articulo</button>
+
+</form>
+</div>
+</div>
+{% endblock %}

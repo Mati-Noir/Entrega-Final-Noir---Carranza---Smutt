@@ -81,9 +81,7 @@ Tambien estaran las opciones de redes sociales, todas redirigidas hacia las pág
 G)Reseñas:
 Tal expresado en la seccion del Navbar, en esta pagina, vera usted todos los posteos realizados y guardados en la base de datos. Puede acceder a ellos mediante el hipervinculo con el titulo del articulo. Si usted esta logeado, podra editar y borrarlos, pero si no lo esta, le redirigira hacia la seccion de login.
 
-Algunos datos claves para el momento de crear articulos:
-"<p>" y "<p/>" = Creadores de parrafos, deben colocarse al principio y final para que los textos puedan estar separados y que no quede un parrafo unificado.
-"<strong>" y "<strong/>" = Para resaltar alguna frase o palabra, se realiza de forma casi igual al anterior pero en este caso es al principio y final de la frase/palabra.
+En el texto, se le indicara algunas instrucciones de como mejorar la estructura de la reseña a crear.
 
 H)Fin:
 Una vez que haya terminado de probar las diferentes funciones de la pagina, vuelva al vsc, haga click en la terminal y presione las teclas "Ctrl" + "C" para cerrar el servidor.

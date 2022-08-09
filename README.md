@@ -6,14 +6,14 @@
 
 # Con esa carpeta descargada del archivo.zip, extraerla y utilizarla dentro del Visual Studio Code.
 
-#A) Primeros pasos:
+# A) Primeros pasos:
 -Descargar la carpeta contenedora del proyecto para abrir en vsc.
 
 -Abrir el Visual Studio Code y seleccionar "open folder".
 
 -Seleccionar la carpeta dentro de la ruta de descarga elegida.
 
-#B) Iniciar la consola, detalles y requisitos:
+# B) Iniciar la consola, detalles y requisitos:
 Dentro del vsc, nos encontraremos en la esquina superior izquierda, un menu con varias herramientas y opciones.
 
 Presionamos click izuqierdo la opcion de "Terminal" que nos despliega un subcartel con varias opciones. Seleccionamos "New Terminal". Al hacerlo, vemos que se crea una seccion en la parte inferior de la pantalla.
@@ -38,7 +38,7 @@ pip install -r requirements.txt
 
 La instalacion se realizara por si sola, por lo que espere hasta que haya finalizado para proseguir.
 
-#C) Ejecutar el servidor local:
+# C) Ejecutar el servidor local:
 Hasta ahora, estamos en la ubicacion correcta de la carpeta, instalamos los programas requeridos para que el proyecto a revisar funcione, pero necesitamos prender el servidor local de django.
 
 Como se hace? Nos vamos a la terminal y escribimos:
@@ -51,7 +51,7 @@ py manage.py runserver
 
 Luego de unos segundos, la terminal te presentara el link de la pagina del servidor local hecha con django "http://127.0.0.1:8000/". Parese sobre el link y se le aparecera una ventana con un hipervinculo hacia la pagina y seleccionela.
 
-#D) Navbar
+# D) Navbar
 Una vez dentro, te dirigira hacia la pagina principal, donde nos encontraremos con las diferentes opciones del menu superior, el contenido de presentacion del proyecto, su tematica hasta el final con las ultimas opciones del pie de pagina.
 
 Los botones interactivos de la barra superior se componen de:
@@ -66,10 +66,10 @@ Los botones interactivos de la barra superior se componen de:
 
 -Registrarse: Estando sin iniciar sesion, se presentaran 2 opciones dentro del navbar, siendo el iniciar sesion y registrarse ambos botones. Al hacer click, le enviara hacia un formulario a completar con sus datos. Una vez completo, confirme y le redirigira hacia la pestaña de login, inicie sesion y pronto estara en el menu principal junto con una frase de bienvenida y el nombre de usuario elegido.
 
-#E) Contenido de Presentacion:
+# E) Contenido de Presentacion:
 Ademas de la barra de navegacion superior, se encontrara con informacion de presentacion y bienvenida al usuario. Normalmente se explica de que se trata el proyecto y que funciones apuntamos a desempeñar.
 
-#F)Footer/Pie de Pagina:
+# F)Footer/Pie de Pagina:
 Al desecender hasta el final, se encontrara con el pie de pagina y sus respectivos links adicionales. Estos hipervinculos te llevaran hacia:
 
 -About us: Con informacion sobre los autores del proyecto, la institucion, el tutor y profesor a cargo dentro del periodo de cursada y correcciones.Estara la opcion para poder visitar el perfil de los profesor en GitHub, junto con el tutor y el sitio web de la plataforma.Tambien se encuentran los links a los github de los integrantes en caso de buscar mas información.
@@ -86,12 +86,12 @@ Tambien estaran las opciones de redes sociales, todas redirigidas hacia las pág
 
 -Instagram
 
-#G)Reseñas:
+# G)Reseñas:
 Tal expresado en la seccion del Navbar, en esta pagina, vera usted todos los posteos realizados y guardados en la base de datos. Puede acceder a ellos mediante el hipervinculo con el titulo del articulo. Si usted esta logeado, podra editar y borrarlos, pero si no lo esta, le redirigira hacia la seccion de login.
 
 En el texto, se le indicara algunas instrucciones de como mejorar la estructura de la reseña a crear.
 
-#H)Fin:
+# H)Fin:
 Una vez que haya terminado de probar las diferentes funciones de la pagina, vuelva al vsc, haga click en la terminal y presione las teclas "Ctrl" + "C" para cerrar el servidor.
 
 -Tambien se puede cerrar el servidor con cerrar el programa, que forzara el cierre de la aplicacion y la conexion con el servidor local.

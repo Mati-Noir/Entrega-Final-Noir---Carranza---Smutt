@@ -22,7 +22,7 @@
     <body>
         
         <!-- Navigation-->
-        <nav class="navbar navbar-light bg-light static-top">
+        <nav class="navbar navbar-dark bg-dark static-top">
             <div class="container">
                 <a class="btn btn-primary" href="{% url 'pagina-inicial' %}">Home</a>
                 <a class="navbar-brand" href="{% url 'Post_list' %}">Reseñas</a>
@@ -34,7 +34,7 @@
                 {% if request.user.is_authenticated %}
                 <div class="text-center" >
                     <img height="50px" src=" {{url}} ">
-                    <h2> Bienvenido: {{user.username}} </h2>
+                    <h2 class="text-light"> Bienvenido: {{user.username}} </h2>
                 </div>
                 <a class="btn btn-primary" href="{% url 'Panel-Logout' %}"> Cerrar Sesión </a>
                 {% endif %}
@@ -67,28 +67,28 @@
        
         
         <!-- Icons Grid-->
-        <section class="features-icons bg-light text-center">
+        <section class="features-icons bg-dark text-center">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                             <div class="features-icons-icon d-flex"><i class="bi-window m-auto text-primary"></i></div>
-                            <h3>Contenido de calidad</h3>
-                            <p class="lead mb-0">Brindamos informacion con las ultimas novedades dentro de la industria gaming.</p>
+                            <h3 class="text-light">Contenido de calidad</h3>
+                            <p class="text-light">Brindamos informacion con las ultimas novedades dentro de la industria gaming.</p>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                             <div class="features-icons-icon d-flex"><i class="bi-layers m-auto text-primary"></i></div>
-                            <h3>Actualizado con frecuencia</h3>
-                            <p class="lead mb-0">Siempre estando al tanto de los nuevos lanzamientos para que no te pierdas de nada.</p>
+                            <h3 class="text-light">Actualizado con frecuencia</h3>
+                            <p class="text-light">Siempre estando al tanto de los nuevos lanzamientos para que no te pierdas de nada.</p>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="features-icons-item mx-auto mb-0 mb-lg-3">
                             <div class="features-icons-icon d-flex"><i class="bi-terminal m-auto text-primary"></i></div>
-                            <h3>Facil de usar</h3>
-                            <p class="lead mb-0">Noticias, reviews, analisis y todo al alcance de tus manos y solo a unos clicks para informarse.</p>
+                            <h3 class="text-light">Facil de usar</h3>
+                            <p class="text-light">Noticias, reviews, analisis y todo al alcance de tus manos y solo a unos clicks para informarse.</p>
                         </div>
                     </div>
                 </div>
@@ -121,29 +121,29 @@
             </div>
         </section>
         <!-- Testimonials-->
-        <section class="testimonials text-center bg-light">
+        <section class="testimonials text-center bg-dark">
             <div class="container">
-                <h2 class="mb-5">Las mejores marcas para llevar al siguiente nivel tu setup</h2>
+                <h2 class="text-light">Las mejores marcas para llevar al siguiente nivel tu setup</h2>
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="testimonial-item mx-auto mb-5 mb-lg-0">
                             <img class="img-fluid rounded-circle mb-3" src="{% static 'mi_app/assets/img/Razer_Logo.jpg' %}" alt="..." />
-                            <h5>Razer</h5>
-                            <p class="font-weight-light mb-0">Uno de los mas grandes referentes del mundo gaming, pioneros de los E-Sports y formando parte de los setup a niveles internacionales.</p>
+                            <h5 class="text-light">Razer</h5>
+                            <p class="text-light">Uno de los mas grandes referentes del mundo gaming, pioneros de los E-Sports y formando parte de los setup a niveles internacionales.</p>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="testimonial-item mx-auto mb-5 mb-lg-0">
                             <img class="img-fluid rounded-circle mb-3" src="{% static 'mi_app/assets/img/Redragon_Logo.jpg' %}" alt="..." />
-                            <h5>Redragon</h5>
-                            <p class="font-weight-light mb-0">Con su desembarco al mercado latinoamericano, se presenta como un competidor digno de resaltar, comunmente relacionado por sus RGBs en todo su arsenal a un precio economico y sorpresivamente de calidad.</p>
+                            <h5 class="text-light">Redragon</h5>
+                            <p class="text-light">Con su desembarco al mercado latinoamericano, se presenta como un competidor digno de resaltar, comunmente relacionado por sus RGBs en todo su arsenal a un precio economico y sorpresivamente de calidad.</p>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="testimonial-item mx-auto mb-5 mb-lg-0">
                             <img class="img-fluid rounded-circle mb-3" src="{% static 'mi_app/assets/img/Corsair-Logo.jpg' %}" alt="..." />
-                            <h5>Corsair</h5>
-                            <p class="font-weight-light mb-0">Un titan de los componentes para pc, entre discos solidos, ventiladores, gabinetes de los mejores que se pueden encontrar en el mercado. Sus precios se ven justificados por la calidad y durabilidad de sus productos.</p>
+                            <h5 class="text-light">Corsair</h5>
+                            <p class="text-light">Un titan de los componentes para pc, entre discos solidos, ventiladores, gabinetes de los mejores que se pueden encontrar en el mercado. Sus precios se ven justificados por la calidad y durabilidad de sus productos.</p>
                         </div>
                     </div>
                 </div>
@@ -170,7 +170,7 @@
         
     {% endblock %}    
         <!-- Footer-->
-        <footer class="footer bg-light">
+        <footer class="footer bg-dark">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 h-100 text-center text-lg-start my-auto">

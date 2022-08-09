@@ -37,7 +37,7 @@ class PostForm(forms.ModelForm):
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Algun titulo para colocar'}),
             'title_tag': forms.TextInput(attrs={'class': 'form-control','placeholder':'Nombre de la pestaña al entrar al articulo'}),
             'author': forms.Select(attrs={'class': 'form-control'}),
-            'body': forms.Textarea(attrs={'class': 'form-control','placeholder':'Escriba lo que desee sobre el articulo'}),
+            'body': forms.Textarea(attrs={'class': 'form-control','placeholder':'Escriba lo que desee sobre el articulo. Acuerdese de usar "<p>" al inicio y "<p/>" al final para hacer parrafos. En caso de querer resaltar utilize "<strong>" y "<strong/>" para destacar en negrita alguna frase/palabra. '}),
         }
 
 class EditForm(forms.ModelForm):
@@ -49,5 +49,5 @@ class EditForm(forms.ModelForm):
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Algun titulo para colocar'}),
             'title_tag': forms.TextInput(attrs={'class': 'form-control','placeholder':'Nombre de la pestaña al entrar al articulo'}),
             #'author': forms.Select(attrs={'class': 'form-control'}),
-            'body': forms.Textarea(attrs={'class': 'form-control','placeholder':'Escriba lo que desee sobre el articulo'}),
+            'body': forms.Textarea(attrs={'class': 'form-control','placeholder':'Escriba lo que desee sobre el articulo. Acuerdese de usar "<p>" al inicio y "<p/>" al final para hacer parrafos. En caso de querer resaltar utilize "<strong>" y "<strong/>" para destacar en negrita alguna frase/palabra. '}),
         }

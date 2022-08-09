@@ -5,7 +5,7 @@ from mi_app import views
 from .views import ArticleDetailView, Lista_Reseñas, AddPostView, UpdatePostView, DeletePostView
 
 
-urlpatterns = [
+urlpatterns = [ 
     path('', mostrar_index),
     path('mi-pagina/', mostrar_index, name = 'pagina-inicial'),
     path('Sobre_Nosotros/',views.mostrar_about_us,name="mostrar_about_us"),
@@ -16,7 +16,7 @@ urlpatterns = [
     path('Politica_Privacidad/',views.mostrar_politicas_privacidad,name="mostrar_politicas_privacidad"),
     path('article/<int:pk>', ArticleDetailView.as_view(), name='article-detail'),
     path('Post_list/', Lista_Reseñas.as_view(), name='Post_list'),
-    path('add_post/', AddPostView.as_view(), name='add_post'),
+    path('add_post/<int:pk>/', AddPostView.as_view(), name='add_post'),
     path('article/edit/<int:pk>',UpdatePostView.as_view(), name='update_post'),
     path('article/<int:pk>/remove',DeletePostView.as_view(), name='delete_post'),
 ]

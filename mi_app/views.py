@@ -99,6 +99,7 @@ class AddPostView(LoginRequiredMixin ,CreateView):
     form_class = PostForm
     template_name = 'mi_app/add_post.html'
     #fields = '__all__'
+    success_url = reverse_lazy('Post_list')
 
 class UpdatePostView(LoginRequiredMixin ,UpdateView):
     model = Post

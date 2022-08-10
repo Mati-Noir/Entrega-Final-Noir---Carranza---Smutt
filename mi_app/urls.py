@@ -16,7 +16,7 @@ urlpatterns = [
     path('Politica_Privacidad/',views.mostrar_politicas_privacidad,name="mostrar_politicas_privacidad"),
     path('article/<int:pk>', ArticleDetailView.as_view(), name='article-detail'),
     path('Post_list/', Lista_Reseñas.as_view(), name='Post_list'),
-    path('add_post/<int:pk>/', AddPostView.as_view(), name='add_post'),
+    path('add_post/(?P<pk>[0-9]+)/\\Z', AddPostView.as_view(), name='add_post'),
     path('article/edit/<int:pk>',UpdatePostView.as_view(), name='update_post'),
     path('article/<int:pk>/remove',DeletePostView.as_view(), name='delete_post'),
 ]

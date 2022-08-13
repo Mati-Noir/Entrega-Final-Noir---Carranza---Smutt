@@ -1,0 +1,18 @@
+{% extends 'mi_app/index.html' %}
+{% block title %}Editar Perfil{% endblock %}
+{% block main %}
+
+<div class="container">
+<br>
+<h1>Editar su perfil</h1>
+<br><br/>
+<div class="form-group"></div>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <button class="btn btn-secondary">Editar perfil</button>
+
+    </form> 
+</div>
+
+{% endblock %}

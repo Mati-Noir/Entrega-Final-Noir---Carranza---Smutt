@@ -5,10 +5,10 @@ from datetime import date, datetime
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView, View, UpdateView, DeleteView
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
 from mi_app.forms import userRegisterForm
 from django.urls import reverse_lazy
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
@@ -113,6 +113,7 @@ class DeletePostView(LoginRequiredMixin , DeleteView):
     template_name = 'mi_app/delete_post.html'
     success_url = reverse_lazy('Post_list')
     
+    
 # ------- CRUD de las reseñas/articulos -------- #
 
 class UserEditView(generic.UpdateView):
@@ -122,3 +123,14 @@ class UserEditView(generic.UpdateView):
 
     def get_object(self):
         return self.request.user
+    
+
+# ------- Cambio de contraseña -------- #
+
+class PasswordsChangeView(PasswordChangeView):
+    form_class = PasswordChangeForm
+    #success_url: reverse_lazy('Post_list')
+    success_url = reverse_lazy('password_success')
+
+def password_success(request):
+    return render(request, 'mi_app/password_success.html', {})

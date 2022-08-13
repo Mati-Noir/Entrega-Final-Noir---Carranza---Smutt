@@ -1,19 +1,23 @@
 {% extends 'mi_app/index.html' %}
 {% block main %}
 
+<br>
 <div class="container">
 <h1>Lista de Reseñas</h1>
 
 <ul>
 {% for post in object_list %}
-    <li><a href="{% url 'article-detail' post.pk %}"> {{ post.title }}</a> - AUTOR: {{ post.author.first_name }}
+    <li><a href="{% url 'article-detail' post.pk %}"><h5> {{ post.title }}</h5></a> - AUTOR: {{ post.author.first_name }}
     {{ post.author.last_name }} - {{ post.post_date }}<small>
         <a href="{% url 'update_post' post.pk %}">(Editar)</a>
 
         <a href="{% url 'delete_post' post.pk %}">(Borrar)</a>
 
     </small> <br/>
-    {{ post.body }}</li>
+    {% if post.image %}
+    <img src="{{ post.image.url }}" width="1000" height="550"><br>
+{% endif %}
+    </li>
     <br>
     <br>
 {% endfor %}
@@ -22,3 +26,6 @@
 
 </div>
 {% endblock %}
+
+<!-- Codigo para agrear el texto en caso necesario, meterlo atras del cierre de li -->
+<!-- {{ post.body| safe }} -->

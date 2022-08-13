@@ -19,6 +19,7 @@ urlpatterns = [
     path('add_post/(?P<pk>[0-9]+)/\\Z', AddPostView.as_view(), name='add_post'),
     path('article/edit/<int:pk>',UpdatePostView.as_view(), name='update_post'),
     path('article/<int:pk>/remove',DeletePostView.as_view(), name='delete_post'),
+    path('edit_profile/', UserEditView.as_view(), name='edit_profile'),
 ]
 
 

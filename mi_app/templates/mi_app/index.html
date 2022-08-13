@@ -35,8 +35,11 @@
                 <div class="text-center" >
                     <img height="50px" src=" {{url}} ">
                     <h2 class="text-light"> Bienvenido: {{user.username}} </h2>
+                    <br>
+                    <br>
                 </div>
                 <a class="btn btn-primary" href="{% url 'Panel-Logout' %}"> Cerrar Sesión </a>
+                <a class="navbar-brand" href="{% url 'edit_profile' %}">Modificar Perfil</a>
                 {% endif %}
             </div>
         </nav> 
@@ -186,13 +189,13 @@
                     <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
                         <ul class="list-inline mb-0">
                             <li class="list-inline-item me-4">
-                                <a href="https://www.facebook.com/Coderhouse/"><i class="bi-facebook fs-3"></i></a>
+                                <a href="https://www.facebook.com/Coderhouse/" target="_blank"><i class="bi-facebook fs-3"></i></a>
                             </li>
                             <li class="list-inline-item me-4">
-                                <a href="https://twitter.com/coderhouse?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="bi-twitter fs-3"></i></a>
+                                <a href="https://twitter.com/coderhouse?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank"><i class="bi-twitter fs-3"></i></a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="https://www.instagram.com/coderhouse/?hl=es"><i class="bi-instagram fs-3"></i></a>
+                                <a href="https://www.instagram.com/coderhouse/?hl=es" target="_blank"><i class="bi-instagram fs-3"></i></a>
                             </li>
                         </ul>
                     </div>

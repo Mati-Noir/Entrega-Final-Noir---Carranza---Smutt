@@ -6,6 +6,8 @@
 
 # Con esa carpeta descargada del archivo.zip, extraerla y utilizarla dentro del Visual Studio Code.
 
+# Hay una version actualizada dentro de la branch_funcional_Correccion. (Incluye Edit Profile + Cambio de Contraseña)
+
 # A) Primeros pasos:
 -Descargar la carpeta contenedora del proyecto para abrir en vsc.
 
@@ -65,6 +67,11 @@ Los botones interactivos de la barra superior se componen de:
 -Iniciar Sesion: Como toda pagina, tenemos una seccion para crear usuario y poder logearse. Ser un usuario dentro del proyecto, tendra acceso a la composicion de reseñas. Al momento de ingresar los datos, se te solicitara que completes los campos con la informacion correcta. Si usted no tiene usuario, puede completar el formulario dentro de la opcion de registrarse y intentar nuevamente.
 
 -Registrarse: Estando sin iniciar sesion, se presentaran 2 opciones dentro del navbar, siendo el iniciar sesion y registrarse ambos botones. Al hacer click, le enviara hacia un formulario a completar con sus datos. Una vez completo, confirme y le redirigira hacia la pestaña de login, inicie sesion y pronto estara en el menu principal junto con una frase de bienvenida y el nombre de usuario elegido.
+
+Las nuevas opciones que se encontraran disponibles en la branch_funcional_Correccion son:
+
+-Modificar Perfil:
+En esta seccion podras modificar tus datos y agregar en caso de que falten. Tambien se presentara la posibilidad de actualizar la contraseña, requeriendo ingresar la contraseña vieja para poder crear la nueva contraseña. Al hacerlo, se le indicara que la operacion ha sido exitosa.
 
 # E) Contenido de Presentacion:
 Ademas de la barra de navegacion superior, se encontrara con informacion de presentacion y bienvenida al usuario. Normalmente se explica de que se trata el proyecto y que funciones apuntamos a desempeñar.

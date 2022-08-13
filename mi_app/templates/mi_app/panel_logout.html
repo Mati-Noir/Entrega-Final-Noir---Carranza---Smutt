@@ -2,8 +2,15 @@
 
 {% block main %}
 
-    <h1> Te has deslogueado! </h1>
-    <button><a href="{% url 'pagina-inicial' %}" > Volver a la pagina inicial </a></button>
+<div class="text-center">
+    <br>
+    <h1><center> Te has deslogueado!</center> </h1>
+    <br>
+    <button><a href="{% url 'pagina-inicial' %}" > Volver a la pagina inicial</a></button>
+    <br>
+    <br>
     <button><a href="{% url 'login' %}" > Iniciar Sesion </a></button>
-
+    <br>
+</div>
+<br>
 {% endblock %}

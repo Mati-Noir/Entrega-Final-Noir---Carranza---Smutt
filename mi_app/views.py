@@ -13,7 +13,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
 from .models import Post
-from .forms import PostForm , EditForm
+from .forms import PostForm , EditForm, EditProfileForm
+from django.views import generic
 
 # --------- Sector de la pagina web. --------- #
 
@@ -111,3 +112,13 @@ class DeletePostView(LoginRequiredMixin , DeleteView):
     model = Post
     template_name = 'mi_app/delete_post.html'
     success_url = reverse_lazy('Post_list')
+    
+# ------- CRUD de las reseñas/articulos -------- #
+
+class UserEditView(generic.UpdateView):
+    form_class = EditProfileForm
+    template_name = 'mi_app/edit_profile.html'
+    success_url = reverse_lazy('Post_list')
+
+    def get_object(self):
+        return self.request.user

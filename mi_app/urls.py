@@ -1,8 +1,10 @@
 from django.contrib import admin
 from django.urls import path
-from mi_app.views import mostrar_index, mostrar_about_us, usuarioRegistro, PanelLogout, usuario_login
+from mi_app.views import mostrar_index, mostrar_about_us, usuarioRegistro, PanelLogout, usuario_login, password_success
 from mi_app import views
-from .views import ArticleDetailView, Lista_Reseñas, AddPostView, UpdatePostView, DeletePostView
+from .views import ArticleDetailView, Lista_Reseñas, AddPostView, UpdatePostView, DeletePostView, UserEditView, PasswordsChangeView
+from django.contrib.auth import views as auth_views
+from . import views
 
 
 urlpatterns = [ 
@@ -20,6 +22,8 @@ urlpatterns = [
     path('article/edit/<int:pk>',UpdatePostView.as_view(), name='update_post'),
     path('article/<int:pk>/remove',DeletePostView.as_view(), name='delete_post'),
     path('edit_profile/', UserEditView.as_view(), name='edit_profile'),
+    path('password/', PasswordsChangeView.as_view(template_name='mi_app/change-password.html')),
+    path('password_success', views.password_success, name="password_success"),
 ]
 
 
